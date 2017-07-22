@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+/*
+ * Маршрут для отображения главной стр. и всего проекта
+ * маршурт обрабатывает IndexCOntroller и метод данного контр.
+ */
+Route::resource('/', 'IndexController',
+                           [
+                              'only'=>['index'],
+                              'names'=>['index'=>'home']
+                           ]);
